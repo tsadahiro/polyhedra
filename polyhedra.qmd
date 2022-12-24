@@ -1,0 +1,149 @@
+---
+title: "Polyhedra"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+    css: styles.css
+---
+
+```{r, setup, echo=F}
+library(rgl)
+knitr::knit_hooks$set(webgl = hook_webgl)
+```
+
+```{r, webgl=TRUE, message=F, warning=F, echo=F}
+library(igraph)
+tetra=graph.famous("tetrahedron")
+rglplot(tetra,
+        vertex.size=1,
+        edge.width=5,
+        vertex.label=NA,
+        layout=layout.kamada.kawai(tetra,dim=3))
+```
+
+```{r, webgl=TRUE, message=F, warning=F, echo=F}
+rgl.close()
+cube=graph.famous("cubical")
+rglplot(cube,
+        vertex.size=1,
+        edge.width=5,
+        vertex.label=NA,
+        layout=layout.kamada.kawai(cube,dim=3))
+```
+
+```{r, webgl=TRUE, message=F, warning=F, echo=F}
+rgl.close()
+octa=graph.famous("octahedron")
+rglplot(octa,
+        vertex.size=1,
+        edge.width=5,
+        vertex.label=NA,
+        layout=layout.kamada.kawai(octa,dim=3))
+```
+
+```{r, webgl=TRUE, message=F, warning=F, echo=F}
+rgl.close()
+dodeca=graph.famous("dodecahedron")
+rglplot(dodeca,
+        vertex.size=1,
+        edge.width=5,
+        vertex.label=NA,
+        layout=layout.kamada.kawai(dodeca,dim=3))
+```
+
+```{r, webgl=TRUE, message=F, warning=F, echo=F}
+rgl.close()
+icosa=graph.famous("icosahedron")
+rglplot(icosa,
+        vertex.size=1,
+        edge.width=5,
+        vertex.label=NA,
+        layout=layout.kamada.kawai(icosa,dim=3))
+```
+
+# 切頂四面体
+
+```{r, webgl=TRUE, message=F, warning=F, echo=F}
+rgl.close()
+edgelist = read.csv("kubo.csv",head=F)
+kubo = graph.edgelist(as.matrix(edgelist),directed=F)
+kubo= simplify(kubo)
+
+rglplot(kubo,
+        layout=layout.kamada.kawai(kubo,dim=3),
+        vertex.size=1,
+        edge.width=3,
+        edge.color="black",
+        vertex.label=NA
+        )
+```
+
+# 斜方立方八面体
+
+```{r, webgl=TRUE, message=F, warning=F, echo=F}
+rgl.close()
+edgelist = read.csv("truncCube.csv",head=F)
+tc = graph.edgelist(as.matrix(edgelist),directed=F)
+tc = simplify(tc)
+
+rglplot(tc,
+        layout=layout.kamada.kawai(tc,dim=3),
+        vertex.size=1,
+        edge.width=3,
+        edge.color="black",
+        vertex.label=NA
+        )
+```
+
+# 	立方八面体
+
+```{r, webgl=TRUE, message=F, warning=F, echo=F}
+rgl.close()
+edgelist = read.csv("cuboctahedron.csv",head=F)
+cubo = graph.edgelist(as.matrix(edgelist),directed=F)
+cubo = simplify(cubo)
+
+rglplot(cubo,
+        layout=layout.kamada.kawai(cubo,dim=3),
+        vertex.size=1,
+        edge.width=3,
+        edge.color="black",
+        vertex.label=NA
+        )
+```
+
+
+# 	斜方二十・十二面体
+
+```{r, webgl=TRUE, message=F, warning=F, echo=F}
+rgl.close()
+edgelist = read.csv("rhombicosidodecahedron.csv",head=F)
+rhombic = graph.edgelist(as.matrix(edgelist),directed=F)
+rhombic = simplify(rhombic)
+
+rglplot(rhombic,
+        layout=layout.kamada.kawai(rhombic,dim=3),
+        vertex.size=1,
+        edge.width=3,
+        edge.color="black",
+        vertex.label=NA
+        )
+```
+
+# 切頂二十面体(サッカーボール)
+
+```{r, webgl=TRUE, message=F, warning=F, echo=F}
+rgl.close()
+edgelist = read.csv("soccer.csv",head=F)
+soccer = graph.edgelist(as.matrix(edgelist),directed=F)
+soccer = simplify(soccer)
+
+rglplot(soccer,
+        layout=layout.kamada.kawai(soccer,dim=3),
+        vertex.size=1,
+        edge.width=3,
+        edge.color="black",
+        vertex.label=NA
+        )
+```

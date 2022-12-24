@@ -1,0 +1,63 @@
+---
+title: "Polyhedra"
+format:
+  html:
+    toc: true
+    html-math-method: katex
+    css: styles.css
+---
+
+```{r, setup, echo=F}
+library(rgl)
+knitr::knit_hooks$set(webgl = hook_webgl)
+```
+
+```{r, webgl=TRUE, message=F, warning=F, echo=F}
+library(igraph)
+tetra=graph.famous("tetrahedron")
+rglplot(tetra,
+        vertex.size=1,
+        edge.width=5,
+        vertex.label=NA,
+        layout=layout.kamada.kawai(tetra,dim=3))
+```
+
+```{r, webgl=TRUE, message=F, warning=F, echo=F}
+rgl.close()
+cube=graph.famous("cubical")
+rglplot(cube,
+        vertex.size=1,
+        edge.width=5,
+        vertex.label=NA,
+        layout=layout.kamada.kawai(cube,dim=3))
+```
+
+```{r, webgl=TRUE, message=F, warning=F, echo=F}
+rgl.close()
+octa=graph.famous("octahedron")
+rglplot(octa,
+        vertex.size=1,
+        edge.width=5,
+        vertex.label=NA,
+        layout=layout.kamada.kawai(octa,dim=3))
+```
+
+```{r, webgl=TRUE, message=F, warning=F, echo=F}
+rgl.close()
+dodeca=graph.famous("dodecahedron")
+rglplot(dodeca,
+        vertex.size=1,
+        edge.width=5,
+        vertex.label=NA,
+        layout=layout.kamada.kawai(dodeca,dim=3))
+```
+
+```{r, webgl=TRUE, message=F, warning=F, echo=F}
+rgl.close()
+icosa=graph.famous("icosahedron")
+rglplot(icosa,
+        vertex.size=1,
+        edge.width=5,
+        vertex.label=NA,
+        layout=layout.kamada.kawai(icosa,dim=3))
+```
