@@ -113,6 +113,22 @@ rglplot(cubo,
         )
 ```
 
+# 二十・十二面体
+```{r, webgl=TRUE, message=F, warning=F, echo=F}
+rgl.close()
+edgelist = read.csv("icosidodeca.csv",head=F)
+icosidodeca = graph.edgelist(as.matrix(edgelist),directed=F)
+icosidodeca = simplify(icosidodeca)
+
+rglplot(icosidodeca,
+        layout=layout.kamada.kawai(icosidodeca,dim=3),
+        vertex.size=1,
+        edge.width=3,
+        edge.color="black",
+        vertex.label=NA
+        )
+```
+
 
 # 	斜方二十・十二面体
 
