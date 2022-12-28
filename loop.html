@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>LightsOut</title>
+  <title>LoopDivision</title>
   <style>body { padding: 0; margin: 0; }</style>
 </head>
 
@@ -7111,7 +7111,7 @@ var $elm$core$Task$perform = F2(
 				A2($elm$core$Task$map, toMessage, task)));
 	});
 var $elm$browser$Browser$element = _Browser_element;
-var $author$project$LightsOut$Model = F9(
+var $author$project$LoopDivision$Model = F9(
 	function (level, vertices, edges, faces, faceAdjList, theta, start, showFaces, timeAfterDivision) {
 		return {edges: edges, faceAdjList: faceAdjList, faces: faces, level: level, showFaces: showFaces, start: start, theta: theta, timeAfterDivision: timeAfterDivision, vertices: vertices};
 	});
@@ -7145,7 +7145,7 @@ var $elm$core$List$member = F2(
 			},
 			xs);
 	});
-var $author$project$LightsOut$adjacent = F2(
+var $author$project$LoopDivision$adjacent = F2(
 	function (f1, f2) {
 		var intersection = A3(
 			$elm$core$List$foldl,
@@ -7168,7 +7168,7 @@ var $elm$core$List$append = F2(
 var $elm$core$List$concat = function (lists) {
 	return A3($elm$core$List$foldr, $elm$core$List$append, _List_Nil, lists);
 };
-var $author$project$LightsOut$adjList = function (faces) {
+var $author$project$LoopDivision$adjList = function (faces) {
 	return A2(
 		$elm$core$List$map,
 		function (f1) {
@@ -7177,33 +7177,33 @@ var $author$project$LightsOut$adjList = function (faces) {
 					$elm$core$List$indexedMap,
 					F2(
 						function (i, f2) {
-							return A2($author$project$LightsOut$adjacent, f1, f2) ? _List_fromArray(
+							return A2($author$project$LoopDivision$adjacent, f1, f2) ? _List_fromArray(
 								[i]) : _List_Nil;
 						}),
 					faces));
 		},
 		faces);
 };
-var $author$project$LightsOut$Edge = F2(
+var $author$project$LoopDivision$Edge = F2(
 	function (from, to) {
 		return {from: from, to: to};
 	});
-var $author$project$LightsOut$initialEdges = _List_fromArray(
+var $author$project$LoopDivision$initialEdges = _List_fromArray(
 	[
-		A2($author$project$LightsOut$Edge, 0, 1),
-		A2($author$project$LightsOut$Edge, 0, 2),
-		A2($author$project$LightsOut$Edge, 0, 3),
-		A2($author$project$LightsOut$Edge, 0, 4),
-		A2($author$project$LightsOut$Edge, 5, 1),
-		A2($author$project$LightsOut$Edge, 5, 2),
-		A2($author$project$LightsOut$Edge, 5, 3),
-		A2($author$project$LightsOut$Edge, 5, 4),
-		A2($author$project$LightsOut$Edge, 1, 2),
-		A2($author$project$LightsOut$Edge, 2, 3),
-		A2($author$project$LightsOut$Edge, 3, 4),
-		A2($author$project$LightsOut$Edge, 4, 1)
+		A2($author$project$LoopDivision$Edge, 0, 1),
+		A2($author$project$LoopDivision$Edge, 0, 2),
+		A2($author$project$LoopDivision$Edge, 0, 3),
+		A2($author$project$LoopDivision$Edge, 0, 4),
+		A2($author$project$LoopDivision$Edge, 5, 1),
+		A2($author$project$LoopDivision$Edge, 5, 2),
+		A2($author$project$LoopDivision$Edge, 5, 3),
+		A2($author$project$LoopDivision$Edge, 5, 4),
+		A2($author$project$LoopDivision$Edge, 1, 2),
+		A2($author$project$LoopDivision$Edge, 2, 3),
+		A2($author$project$LoopDivision$Edge, 3, 4),
+		A2($author$project$LoopDivision$Edge, 4, 1)
 	]);
-var $author$project$LightsOut$initialFaces = _List_fromArray(
+var $author$project$LoopDivision$initialFaces = _List_fromArray(
 	[
 		_List_fromArray(
 		[0, 1, 2]),
@@ -7233,7 +7233,7 @@ var $ianmackenzie$elm_geometry$Point3d$meters = F3(
 var $elm$core$Basics$negate = function (n) {
 	return -n;
 };
-var $author$project$LightsOut$initialVertices = _List_fromArray(
+var $author$project$LoopDivision$initialVertices = _List_fromArray(
 	[
 		A3($ianmackenzie$elm_geometry$Point3d$meters, 0, 0, 1),
 		A3($ianmackenzie$elm_geometry$Point3d$meters, 1, 0, 0),
@@ -7245,25 +7245,25 @@ var $author$project$LightsOut$initialVertices = _List_fromArray(
 var $elm$core$Debug$log = _Debug_log;
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
-var $author$project$LightsOut$init = function (_v0) {
+var $author$project$LoopDivision$init = function (_v0) {
 	return _Utils_Tuple2(
 		A9(
-			$author$project$LightsOut$Model,
+			$author$project$LoopDivision$Model,
 			0,
-			$author$project$LightsOut$initialVertices,
-			$author$project$LightsOut$initialEdges,
-			$author$project$LightsOut$initialFaces,
+			$author$project$LoopDivision$initialVertices,
+			$author$project$LoopDivision$initialEdges,
+			$author$project$LoopDivision$initialFaces,
 			A2(
 				$elm$core$Debug$log,
 				'initadj',
-				$author$project$LightsOut$adjList($author$project$LightsOut$initialFaces)),
+				$author$project$LoopDivision$adjList($author$project$LoopDivision$initialFaces)),
 			0,
 			$elm$core$Maybe$Nothing,
 			false,
 			0),
 		$elm$core$Platform$Cmd$none);
 };
-var $author$project$LightsOut$Elapsed = function (a) {
+var $author$project$LoopDivision$Elapsed = function (a) {
 	return {$: 'Elapsed', a: a};
 };
 var $elm$time$Time$Every = F2(
@@ -7681,8 +7681,8 @@ var $elm$time$Time$every = F2(
 		return $elm$time$Time$subscription(
 			A2($elm$time$Time$Every, interval, tagger));
 	});
-var $author$project$LightsOut$subscriptions = function (model) {
-	return A2($elm$time$Time$every, 50, $author$project$LightsOut$Elapsed);
+var $author$project$LoopDivision$subscriptions = function (model) {
+	return A2($elm$time$Time$every, 50, $author$project$LoopDivision$Elapsed);
 };
 var $elm$core$Basics$pi = _Basics_pi;
 var $ianmackenzie$elm_units$Quantity$Quantity = function (a) {
@@ -7890,7 +7890,7 @@ var $elm$core$Maybe$withDefault = F2(
 			return _default;
 		}
 	});
-var $author$project$LightsOut$refine = function (model) {
+var $author$project$LoopDivision$refine = function (model) {
 	var vertices = model.vertices;
 	var midPoint = F2(
 		function (v, w) {
@@ -8106,12 +8106,12 @@ var $author$project$LightsOut$refine = function (model) {
 			A2($elm$core$List$map, divideEdge, edges),
 			A2($elm$core$List$map, edgeFromFace, faces)));
 	return A9(
-		$author$project$LightsOut$Model,
+		$author$project$LoopDivision$Model,
 		model.level + 1,
 		_Utils_ap(vertices, newVertices),
 		newEdges,
 		_Utils_ap(faces, newFaces),
-		$author$project$LightsOut$adjList(
+		$author$project$LoopDivision$adjList(
 			_Utils_ap(faces, newFaces)),
 		model.theta,
 		$elm$core$Maybe$Nothing,
@@ -8217,7 +8217,7 @@ var $ianmackenzie$elm_geometry$Direction3d$positiveX = $ianmackenzie$elm_geometr
 	{x: 1, y: 0, z: 0});
 var $ianmackenzie$elm_geometry$Direction3d$x = $ianmackenzie$elm_geometry$Direction3d$positiveX;
 var $ianmackenzie$elm_geometry$Axis3d$x = A2($ianmackenzie$elm_geometry$Axis3d$through, $ianmackenzie$elm_geometry$Point3d$origin, $ianmackenzie$elm_geometry$Direction3d$x);
-var $author$project$LightsOut$update = F2(
+var $author$project$LoopDivision$update = F2(
 	function (msg, model) {
 		switch (msg.$) {
 			case 'Elapsed':
@@ -8228,10 +8228,10 @@ var $author$project$LightsOut$update = F2(
 						{timeAfterDivision: model.timeAfterDivision + 1}),
 					$elm$core$Platform$Cmd$none);
 			case 'Divide':
-				var refined = $author$project$LightsOut$refine(model);
+				var refined = $author$project$LoopDivision$refine(model);
 				var dummy = A2($elm$core$Debug$log, 'edges', refined.edges);
 				return _Utils_Tuple2(
-					$author$project$LightsOut$refine(model),
+					$author$project$LoopDivision$refine(model),
 					$elm$core$Platform$Cmd$none);
 			case 'RStart':
 				var pos = msg.a;
@@ -8328,21 +8328,21 @@ var $author$project$LightsOut$update = F2(
 					$elm$core$Platform$Cmd$none);
 		}
 	});
-var $author$project$LightsOut$Divide = {$: 'Divide'};
-var $author$project$LightsOut$RDbl = function (a) {
+var $author$project$LoopDivision$Divide = {$: 'Divide'};
+var $author$project$LoopDivision$RDbl = function (a) {
 	return {$: 'RDbl', a: a};
 };
-var $author$project$LightsOut$REnd = F2(
+var $author$project$LoopDivision$REnd = F2(
 	function (a, b) {
 		return {$: 'REnd', a: a, b: b};
 	});
-var $author$project$LightsOut$RMove = function (a) {
+var $author$project$LoopDivision$RMove = function (a) {
 	return {$: 'RMove', a: a};
 };
-var $author$project$LightsOut$RStart = function (a) {
+var $author$project$LoopDivision$RStart = function (a) {
 	return {$: 'RStart', a: a};
 };
-var $author$project$LightsOut$ToggleFaces = {$: 'ToggleFaces'};
+var $author$project$LoopDivision$ToggleFaces = {$: 'ToggleFaces'};
 var $avh4$elm_color$Color$RgbaSpace = F4(
 	function (a, b, c, d) {
 		return {$: 'RgbaSpace', a: a, b: b, c: c, d: d};
@@ -11076,7 +11076,7 @@ var $ianmackenzie$elm_geometry$Point3d$circumcenter = F3(
 		var a = _v2.a;
 		return (_Utils_cmp(a, b) > -1) ? ((_Utils_cmp(a, c) > -1) ? A6($ianmackenzie$elm_geometry$Point3d$circumenterHelp, p1, p2, p3, a, b, c) : A6($ianmackenzie$elm_geometry$Point3d$circumenterHelp, p3, p1, p2, c, a, b)) : ((_Utils_cmp(b, c) > -1) ? A6($ianmackenzie$elm_geometry$Point3d$circumenterHelp, p2, p3, p1, b, c, a) : A6($ianmackenzie$elm_geometry$Point3d$circumenterHelp, p3, p1, p2, c, a, b));
 	});
-var $author$project$LightsOut$faceCenter = F2(
+var $author$project$LoopDivision$faceCenter = F2(
 	function (face, vertices) {
 		var r = A2(
 			$elm$core$Maybe$withDefault,
@@ -11865,7 +11865,7 @@ var $elm$core$Tuple$second = function (_v0) {
 	var y = _v0.b;
 	return y;
 };
-var $author$project$LightsOut$relativePosition = function (ev) {
+var $author$project$LoopDivision$relativePosition = function (ev) {
 	return {x: ev.pointer.offsetPos.a, y: ev.pointer.offsetPos.b};
 };
 var $elm$core$List$repeatHelp = F3(
@@ -13403,11 +13403,11 @@ var $ianmackenzie$elm_geometry$Direction3d$xy = function (_v0) {
 			z: 0
 		});
 };
-var $author$project$LightsOut$view = function (model) {
+var $author$project$LoopDivision$view = function (model) {
 	var xcoord = function (f) {
 		return -$ianmackenzie$elm_units$Length$inMeters(
 			$ianmackenzie$elm_geometry$Point3d$yCoordinate(
-				A2($author$project$LightsOut$faceCenter, f, model.vertices)));
+				A2($author$project$LoopDivision$faceCenter, f, model.vertices)));
 	};
 	var verticesView = model.vertices;
 	var vertex = function (i) {
@@ -13566,24 +13566,24 @@ var $author$project$LightsOut$view = function (model) {
 			[
 				$mpizenberg$elm_pointer_events$Html$Events$Extra$Pointer$onDown(
 				function (ev) {
-					return $author$project$LightsOut$RStart(
-						$author$project$LightsOut$relativePosition(ev));
+					return $author$project$LoopDivision$RStart(
+						$author$project$LoopDivision$relativePosition(ev));
 				}),
 				$mpizenberg$elm_pointer_events$Html$Events$Extra$Pointer$onUp(
 				function (ev) {
 					return A2(
-						$author$project$LightsOut$REnd,
-						$author$project$LightsOut$relativePosition(ev),
+						$author$project$LoopDivision$REnd,
+						$author$project$LoopDivision$relativePosition(ev),
 						frontIdx);
 				}),
 				$mpizenberg$elm_pointer_events$Html$Events$Extra$Pointer$onMove(
 				function (ev) {
-					return $author$project$LightsOut$RMove(
-						$author$project$LightsOut$relativePosition(ev));
+					return $author$project$LoopDivision$RMove(
+						$author$project$LoopDivision$relativePosition(ev));
 				}),
 				$mpizenberg$elm_pointer_events$Html$Events$Extra$Mouse$onDoubleClick(
 				function (ev) {
-					return $author$project$LightsOut$RDbl(frontIdx);
+					return $author$project$LoopDivision$RDbl(frontIdx);
 				}),
 				A2($elm$html$Html$Attributes$style, 'touch-action', 'none')
 			]),
@@ -13601,7 +13601,7 @@ var $author$project$LightsOut$view = function (model) {
 						$elm$html$Html$button,
 						_List_fromArray(
 							[
-								$elm$html$Html$Events$onClick($author$project$LightsOut$Divide),
+								$elm$html$Html$Events$onClick($author$project$LoopDivision$Divide),
 								A2($elm$html$Html$Attributes$style, 'font-size', '30px')
 							]),
 						_List_fromArray(
@@ -13612,7 +13612,7 @@ var $author$project$LightsOut$view = function (model) {
 						$elm$html$Html$button,
 						_List_fromArray(
 							[
-								$elm$html$Html$Events$onClick($author$project$LightsOut$ToggleFaces),
+								$elm$html$Html$Events$onClick($author$project$LoopDivision$ToggleFaces),
 								A2($elm$html$Html$Attributes$style, 'font-size', '30px')
 							]),
 						_List_fromArray(
@@ -13637,12 +13637,12 @@ var $author$project$LightsOut$view = function (model) {
 				})
 			]));
 };
-var $author$project$LightsOut$main = $elm$browser$Browser$element(
-	{init: $author$project$LightsOut$init, subscriptions: $author$project$LightsOut$subscriptions, update: $author$project$LightsOut$update, view: $author$project$LightsOut$view});
-_Platform_export({'LightsOut':{'init':$author$project$LightsOut$main(
+var $author$project$LoopDivision$main = $elm$browser$Browser$element(
+	{init: $author$project$LoopDivision$init, subscriptions: $author$project$LoopDivision$subscriptions, update: $author$project$LoopDivision$update, view: $author$project$LoopDivision$view});
+_Platform_export({'LoopDivision':{'init':$author$project$LoopDivision$main(
 	$elm$json$Json$Decode$succeed(_Utils_Tuple0))(0)}});}(this));
 
-  var app = Elm.LightsOut.init({ node: document.getElementById("elm") });
+  var app = Elm.LoopDivision.init({ node: document.getElementById("elm") });
 }
 catch (e)
 {
